@@ -131,13 +131,13 @@ This repository is licensed under **AGPLv3**.
 
 See the `LICENSE` file for details.
 
-Xaviour AI Demo is open source under AGPLv3. For commercial licensing contact chris@xaviour.ai.
+Xaviour AI Demo is open source under AGPLv3. For commercial licensing contact christopher@xaviour.ai.
 
 ## Commercial Licensing
 
 For commercial licensing, private deployment, OEM/white-label use, or proprietary usage, contact:
 
-**chris@xaviour.ai**
+**christopher@xaviour.ai**
 
 See `COMMERCIAL_LICENSE.md` for more information.
 
@@ -145,7 +145,7 @@ See `COMMERCIAL_LICENSE.md` for more information.
 
 If you discover a security issue, please report it privately to:
 
-**chris@xaviour.ai**
+**christopher@xaviour.ai**
 
 See `SECURITY.md` for the disclosure policy.
 
