@@ -1,0 +1,222 @@
+@import "tailwindcss";
+
+@theme {
+  /* Fonts — Inter for UI, Lora for narrative prose */
+  --font-heading: "Inter", sans-serif;
+  --font-body: "Lora", serif;
+  --font-sans: "Inter", sans-serif;
+
+  /* ── Warm Linen (default) ── */
+  --color-bg-base: #f6f3ed;
+  --color-bg-nav: rgba(246, 243, 237, 0.80);
+  --color-bg-chip: rgba(255, 255, 255, 0.45);
+
+  --color-text-primary: #1a1208;
+  --color-text-body: #2d2010;
+  --color-text-muted: #6b5a3e;
+
+  --color-accent: #b8711f;
+  --color-accent-text: #9a5c10;
+
+  --color-border: rgba(120, 95, 50, 0.09);
+  --color-border-strong: rgba(120, 95, 50, 0.15);
+
+  --color-pill-bg: rgba(255, 255, 255, 0.55);
+  --color-pill-border: rgba(184, 113, 31, 0.20);
+  --color-pill-text: #9a5c10;
+
+  --color-confirmed-bg: rgba(34, 197, 94, 0.10);
+  --color-confirmed-border: rgba(34, 197, 94, 0.22);
+  --color-confirmed-text: #15803d;
+
+  --color-cmd-bg: #1a1a18;
+
+  /* Gradient orbs — Warm Linen */
+  --orb-1: radial-gradient(ellipse 65% 55% at 88% 8%, rgba(210, 150, 80, 0.18) 0%, transparent 70%);
+  --orb-2: radial-gradient(ellipse 50% 45% at 8% 82%, rgba(180, 110, 40, 0.12) 0%, transparent 65%);
+  --orb-3: radial-gradient(ellipse 40% 40% at 55% 98%, rgba(230, 190, 130, 0.18) 0%, transparent 60%);
+
+  /* Status colours */
+  --color-urgent: #ef4444;
+  --color-important: #f59e0b;
+  --color-informative: #3b82f6;
+  --color-noise: rgba(120, 120, 120, 0.28);
+
+  /* Radii */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-pill: 999px;
+}
+
+/* ── Arctic Glass theme override ── */
+[data-theme="arctic"] {
+  --color-bg-base: #f0f4f8;
+  --color-bg-nav: rgba(240, 244, 248, 0.80);
+  --color-bg-chip: rgba(255, 255, 255, 0.45);
+
+  --color-text-primary: #0a1520;
+  --color-text-body: #1a2535;
+  --color-text-muted: #4a6070;
+
+  --color-accent: #0ea5e9;
+  --color-accent-text: #0276af;
+
+  --color-border: rgba(100, 130, 160, 0.10);
+  --color-border-strong: rgba(100, 130, 160, 0.17);
+
+  --color-pill-bg: rgba(255, 255, 255, 0.55);
+  --color-pill-border: rgba(14, 165, 233, 0.20);
+  --color-pill-text: #0276af;
+
+  --color-cmd-bg: #0a1520;
+
+  --orb-1: radial-gradient(ellipse 72% 60% at 88% 6%, rgba(80, 185, 235, 0.45) 0%, transparent 70%);
+  --orb-2: radial-gradient(ellipse 60% 54% at 6% 82%, rgba(50, 140, 210, 0.35) 0%, transparent 68%);
+  --orb-3: radial-gradient(ellipse 54% 48% at 62% 95%, rgba(120, 205, 248, 0.38) 0%, transparent 62%);
+}
+
+@layer base {
+  html {
+    color-scheme: light;
+  }
+  body {
+    background-color: var(--color-bg-base);
+    color: var(--color-text-primary);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+}
+
+@layer utilities {
+  .gradient-mesh {
+    background:
+      var(--orb-1),
+      var(--orb-2),
+      var(--orb-3),
+      var(--color-bg-base);
+    background-attachment: fixed;
+  }
+  .glass-nav {
+    background: var(--color-bg-nav);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  .glass-pill {
+    background: var(--color-pill-bg);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+  .glass-chip {
+    background: var(--color-bg-chip);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+}
+
+/* ── Brief Entry — hover-reveal glass ── */
+@layer components {
+.brief-entry {
+  position: relative;
+  background: transparent;
+  border: none;
+  border-radius: 12px;
+  box-shadow: none;
+}
+/* ── Divider between entries ── */
+.brief-divider {
+  height: 1px;
+  background: color-mix(in srgb, var(--color-text-primary) 8%, transparent);
+}
+} /* end @layer components */
+
+/* ── Xaviour command bar glow ── */
+.xav-cmd-bar:focus-within {
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.25),
+    0 0 0 1.5px rgba(14, 165, 233, 0.5),
+    0 0 16px rgba(14, 165, 233, 0.12) !important;
+}
+
+/* ── Xaviour spark pulse (legacy) ── */
+@keyframes xav-spark-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.85); }
+}
+.xav-spark-pulse {
+  animation: xav-spark-pulse 1.8s ease-in-out infinite;
+}
+
+/* ── Xaviour spark idle breathing (legacy) ── */
+@keyframes xav-spark-idle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.55; }
+}
+.xav-spark-idle {
+  animation: xav-spark-idle 3.5s ease-in-out infinite;
+}
+
+/* ── Xaviour Icon — idle breathing ── */
+@keyframes xav-icon-idle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.65; }
+}
+.xav-icon-idle {
+  animation: xav-icon-idle 4s ease-in-out infinite;
+}
+
+/* ── Xaviour Icon — active pulse (sending, confirming) ── */
+@keyframes xav-icon-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); filter: brightness(1); }
+  50% { opacity: 0.7; transform: scale(0.92); filter: brightness(1.15); }
+}
+.xav-icon-pulse {
+  animation: xav-icon-pulse 1.8s ease-in-out infinite;
+}
+
+/* ── Xaviour Icon — thinking / processing (nebula glow pulse) ── */
+@keyframes xav-icon-thinking {
+  0%, 100% { opacity: 1; transform: scale(1); filter: brightness(1) drop-shadow(0 0 2px rgba(96,165,250,0)); }
+  50% { opacity: 0.85; transform: scale(1.06); filter: brightness(1.2) drop-shadow(0 0 4px rgba(96,165,250,0.4)); }
+}
+.xav-icon-thinking {
+  animation: xav-icon-thinking 2s ease-in-out infinite;
+}
+
+/* ── V1 card hover content reveal ── */
+.v1-hover-reveal {
+  will-change: height, opacity;
+}
+
+/* ── Focus panel entrance ── */
+@keyframes focus-panel-in {
+  from { opacity: 0; transform: scale(0.96) translateY(8px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+.xav-focus-panel-in {
+  animation: focus-panel-in 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* ── Sync dot pulse ── */
+@keyframes xav-sync-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.xav-sync-dot {
+  animation: xav-sync-pulse 1.5s ease-in-out infinite;
+}
+
+/* ── Sync spin ── */
+@keyframes xav-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ── Hide scrollbar on thread timeline ── */
+.thread-timeline::-webkit-scrollbar { display: none; }
