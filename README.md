@@ -4,6 +4,40 @@
 
 Xaviour is an AI-first email experience that turns inbox noise into a calm narrative workflow. This public repository is a **demo version** of Xaviour designed to showcase the product experience without exposing proprietary production systems.
 
+---
+
+### The Morning Brief
+
+Your inbox distilled into a calm, narrative overview — no list of subjects, no clutter. Xaviour tells you what matters and why.
+
+![Morning Brief — narrative inbox overview](docs/screenshots/overview-brief.png)
+
+### AI Command Bar
+
+Ask Xaviour anything. The command bar opens with intelligent suggestions and responds with editorial, context-aware guidance drawn from your inbox.
+
+![Command bar with AI suggestion chips](docs/screenshots/command-bar.png)
+
+### Narrative AI Responses
+
+When you ask "What needs my attention first?", Xaviour doesn't list emails — it tells you a story. Rich, editorial responses that prioritize and contextualize.
+
+![AI narrative response on the overview page](docs/screenshots/ai-response.png)
+
+### Thread Workspace
+
+Open any thread to see the full conversation with smart actions — Quick Reply, Forward, Summarize — all within a focused workspace.
+
+![Thread workspace with email content and actions](docs/screenshots/thread-workspace.png)
+
+### AI-Drafted Replies
+
+One click and Xaviour drafts a contextual reply. Review it, edit it, or send it — the AI writes in your voice with full thread awareness.
+
+![AI-generated draft reply ready to send](docs/screenshots/ai-draft-reply.png)
+
+---
+
 ## What this demo shows
 
 This demo includes a mock version of the Xaviour experience, including:
