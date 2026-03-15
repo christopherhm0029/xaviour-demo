@@ -33,7 +33,7 @@ export default function RootLayout({
       <body className={`${inter.variable} ${lora.variable}`}>
         <ThemeProvider
           attribute="data-theme"
-          defaultTheme="linen"
+          defaultTheme="arctic"
           themes={["linen", "arctic"]}
           enableSystem={false}
         >
