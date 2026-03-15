@@ -81,7 +81,7 @@ export function CommandBar({ open, onOpenChange, onResponse, emailContext, userN
         onResponse("Something went wrong — try again.");
       }
     } catch {
-      onResponse("Couldn't reach Xaviour — check your connection.");
+      onResponse("Couldn't reach Xaviour AI — check your connection.");
     } finally {
       setLoading(false);
       onOpenChange(false);
@@ -184,7 +184,7 @@ export function CommandBar({ open, onOpenChange, onResponse, emailContext, userN
               value={value}
               onChange={(e) => setValue(e.target.value)}
               onKeyDown={handleKeyDown}
-              placeholder="Ask Xaviour anything..."
+              placeholder="Ask Xaviour AI anything..."
               disabled={loading}
               className="flex-1 bg-transparent border-none outline-none font-[var(--font-heading)] text-[15px] text-white placeholder:text-white/40 ml-3"
             />

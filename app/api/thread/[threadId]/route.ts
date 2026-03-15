@@ -30,7 +30,7 @@ export async function GET(
           date: new Date().toISOString(),
           from: { name: "Demo Sender", email: "demo@example.com" },
           subject: "Demo Email",
-          body: "This is a demo email message. In the full Xaviour experience, this would show the real email content from your inbox.",
+          body: "This is a demo email message. In the full Xaviour AI experience, this would show the real email content from your inbox.",
         },
       ],
     });

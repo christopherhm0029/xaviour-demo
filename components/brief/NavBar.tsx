@@ -95,7 +95,7 @@ export function NavBar({ counts, userName, userEmail, onCategoryClick, onOvervie
     >
       {/* Left — Logo */}
       <span className="font-[var(--font-heading)] text-[12px] font-semibold tracking-[0.16em] uppercase text-[var(--color-text-primary)] flex items-center gap-[6px]">
-        <XaviourMark size={18} animate="idle" /> Xaviour
+        <XaviourMark size={18} animate="idle" /> Xaviour AI
       </span>
 
       {/* Center — Inline expanding category pills */}

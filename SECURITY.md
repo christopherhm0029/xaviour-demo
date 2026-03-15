@@ -1,6 +1,6 @@
 # Security Policy
 
-Thank you for helping keep Xaviour safe.
+Thank you for helping keep Xaviour AI safe.
 
 ## Reporting a Vulnerability
 

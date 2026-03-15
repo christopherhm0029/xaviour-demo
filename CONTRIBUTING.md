@@ -1,8 +1,8 @@
 # Contributing to Xaviour AI Demo
 
-Thanks for your interest in contributing to Xaviour.
+Thanks for your interest in contributing to Xaviour AI.
 
-This repository is a **public demo** of the Xaviour product experience. It is meant to showcase the interface, interaction model, and product direction using mock data and simulated behavior.
+This repository is a **public demo** of the Xaviour AI product experience. It is meant to showcase the interface, interaction model, and product direction using mock data and simulated behavior.
 
 ## What Contributions Are Welcome
 
@@ -38,7 +38,7 @@ Please:
 1. read the README
 2. check existing issues or discussions first
 3. keep changes focused and easy to review
-4. preserve the premium Xaviour product direction
+4. preserve the premium Xaviour AI product direction
 5. avoid broad redesigns unless explicitly discussed
 
 ## Development
@@ -61,7 +61,7 @@ npm run dev
 
 ## Design / UX Principle
 
-Xaviour should feel:
+Xaviour AI should feel:
 
 - calm
 - premium

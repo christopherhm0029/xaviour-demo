@@ -97,7 +97,7 @@ export function AmbientBrief({ brief, syncing, lastSync, onSync, authError, user
           {authError && (
             <div className="mb-8">
               <p className="font-[var(--font-body)] text-[15px] text-[var(--color-text-body)] italic leading-relaxed">
-                Xaviour needs updated permissions to continue.{" "}
+                Xaviour AI needs updated permissions to continue.{" "}
                 <a
                   href="/api/auth/google"
                   className="font-[var(--font-heading)] not-italic text-[var(--color-accent-text)] hover:underline transition-all duration-150"

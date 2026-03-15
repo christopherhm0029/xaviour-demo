@@ -766,7 +766,7 @@ export function ThreadWorkspace({
         setAgentDraft({ mode: "error", message: "Couldn't generate a draft — try again." });
       }
     } catch {
-      setAgentDraft({ mode: "error", message: "Couldn't reach Xaviour." });
+      setAgentDraft({ mode: "error", message: "Couldn't reach Xaviour AI." });
     }
   }, [messages, item]);
 
@@ -907,8 +907,8 @@ export function ThreadWorkspace({
         setCmdAction(null);
       }
     } catch {
-      pushHistory(query, "Couldn't reach Xaviour.", "error");
-      setCmdResponse("Couldn't reach Xaviour.");
+      pushHistory(query, "Couldn't reach Xaviour AI.", "error");
+      setCmdResponse("Couldn't reach Xaviour AI.");
       setCmdAction(null);
     } finally {
       setCmdLoading(false);
@@ -962,7 +962,7 @@ export function ThreadWorkspace({
             }
           })
           .catch(() => {
-            setCmdResponse("Couldn't reach Xaviour.");
+            setCmdResponse("Couldn't reach Xaviour AI.");
             setCmdLoading(false);
           });
       }, 80);
@@ -1284,7 +1284,7 @@ export function ThreadWorkspace({
                 onKeyDown={(e) => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); handleCmdSubmit(); } }}
                 onFocus={() => setCmdInputFocused(true)}
                 onBlur={() => setCmdInputFocused(false)}
-                placeholder={agentDraft.mode === "ready" ? `"send it", "make it shorter", or revise…` : selectedThreadMsg ? `Ask about this message…` : "Reply, ask, or instruct Xaviour…"}
+                placeholder={agentDraft.mode === "ready" ? `"send it", "make it shorter", or revise…` : selectedThreadMsg ? `Ask about this message…` : "Reply, ask, or instruct Xaviour AI…"}
                 disabled={cmdLoading}
                 className="font-[var(--font-heading)] text-[14px] placeholder:text-white/35"
                 style={{ flex: 1, background: "transparent", border: "none", outline: "none", color: "white", caretColor: "var(--color-accent)", minWidth: 0 }}
