@@ -4,6 +4,8 @@
 
 Xaviour is an AI-first email experience that turns inbox noise into a calm narrative workflow. This public repository is a **demo version** of Xaviour designed to showcase the product experience without exposing proprietary production systems.
 
+> **Demo Notice** — This repository showcases the Xaviour experience and interface only. The AI intelligence, proprietary prompts, real integrations (Gmail, Calendar, OAuth), and production backend are **not included**. All responses are simulated using mock logic to demonstrate how the product feels and flows — not how it thinks. The real Xaviour is significantly more capable than what you see here.
+
 ---
 
 ## The Morning Brief
@@ -149,4 +151,4 @@ See `SECURITY.md` for the disclosure policy.
 
 ## Disclaimer
 
-This public demo intentionally excludes proprietary production logic, hidden prompts, private integrations, and internal infrastructure. The real Xaviour product contains additional systems that are not included in this repository.
+This repository is a **UI and experience demo only**. It does not contain the AI models, proprietary prompts, orchestration logic, or production integrations that power the real Xaviour product. All AI responses, drafts, and suggestions shown here are generated from mock templates — they demonstrate the workflow, not the intelligence. The production version of Xaviour is significantly more capable and is not represented by this codebase.
