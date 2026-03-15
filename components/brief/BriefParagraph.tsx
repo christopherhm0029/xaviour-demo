@@ -148,7 +148,7 @@ export function BriefParagraph({ item, onEditOpen, onReply, onAction }: BriefPar
 
         {/* Prose — truncated or full, click opens modal */}
         <p
-          className="font-[var(--font-body)] font-normal text-[var(--color-text-body)] text-[17px] leading-[1.7] pl-[15px] cursor-pointer"
+          className="font-[var(--font-body)] font-normal text-[var(--color-text-body)] text-[15px] sm:text-[17px] leading-[1.6] sm:leading-[1.7] pl-[15px] cursor-pointer"
           onClick={() => onEditOpen(item)}
         >
           {expanded ? item.narrative : truncatedText}

@@ -91,7 +91,7 @@ export function NavBar({ counts, userName, userEmail, onCategoryClick, onOvervie
   return (
     <nav
       ref={navRef}
-      className="sticky top-0 z-50 glass-nav border-b border-[var(--color-border)] h-[52px] px-6 flex items-center justify-between"
+      className="sticky top-0 z-50 glass-nav border-b border-[var(--color-border)] h-[52px] px-3 sm:px-6 flex items-center justify-between"
     >
       {/* Left — Logo */}
       <span className="font-[var(--font-heading)] text-[12px] font-semibold tracking-[0.16em] uppercase text-[var(--color-text-primary)] flex items-center gap-[6px]">
@@ -204,7 +204,7 @@ export function NavBar({ counts, userName, userEmail, onCategoryClick, onOvervie
       </div>
 
       {/* Right — Live + Meeting + Theme + Avatar */}
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-2 sm:gap-3">
         <div className="flex items-center gap-1.5">
           {syncing ? (
             <>
@@ -243,18 +243,18 @@ export function NavBar({ counts, userName, userEmail, onCategoryClick, onOvervie
         </div>
 
         {nextEvent && (
-          <>
+          <div className="hidden sm:flex items-center gap-3">
             <div className="w-px h-[14px] bg-[var(--color-border-strong)]" />
             <span className="font-[var(--font-heading)] text-[12px] text-[var(--color-text-muted)]">
               {nextEvent.startTime} · {getShortTitle(nextEvent.title)}
             </span>
-          </>
+          </div>
         )}
 
         {mounted && (
           <button
             onClick={() => setTheme(theme === "linen" ? "arctic" : "linen")}
-            className="glass-pill border border-[var(--color-border)] rounded-full px-2.5 py-1 text-[10px] font-medium text-[var(--color-text-muted)] cursor-pointer transition-all duration-150 hover:brightness-95"
+            className="hidden sm:inline-flex glass-pill border border-[var(--color-border)] rounded-full px-2.5 py-1 text-[10px] font-medium text-[var(--color-text-muted)] cursor-pointer transition-all duration-150 hover:brightness-95"
           >
             {theme === "linen" ? "linen" : "arctic"}
           </button>

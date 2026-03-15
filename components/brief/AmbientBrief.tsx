@@ -89,7 +89,7 @@ export function AmbientBrief({ brief, syncing, lastSync, onSync, authError, user
         syncing={syncing}
         onSync={onSync}
       />
-      <div className="flex justify-center px-6 pt-14 pb-40">
+      <div className="flex justify-center px-4 sm:px-6 pt-8 sm:pt-14 pb-40">
         <div className="w-full max-w-[620px]">
           <GreetingLine name={brief.userName} />
 
@@ -116,7 +116,7 @@ export function AmbientBrief({ brief, syncing, lastSync, onSync, authError, user
             >
               <p>
                 <span className="mr-1.5"><XaviourMark size={20} /></span>
-                <span className="font-[var(--font-body)] font-normal italic text-[var(--color-text-body)] text-[22px] leading-[2.0]">
+                <span className="font-[var(--font-body)] font-normal italic text-[var(--color-text-body)] text-[18px] sm:text-[22px] leading-[1.8] sm:leading-[2.0]">
                   {aiResponse}
                 </span>{" "}
                 <button

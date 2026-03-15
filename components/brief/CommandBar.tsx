@@ -107,10 +107,11 @@ export function CommandBar({ open, onOpenChange, onResponse, emailContext, userN
       {/* Suggestion chips — float above bar when open */}
       {open && showSuggestions && !value.trim() && !loading && (
         <div
-          className="fixed left-1/2 -translate-x-1/2 z-44 flex items-center gap-2 flex-wrap justify-center"
+          className="fixed left-1/2 -translate-x-1/2 z-44 flex items-center gap-2 flex-wrap justify-center px-4 sm:px-0"
           style={{
             bottom: 118,
-            maxWidth: 560,
+            maxWidth: "min(560px, calc(100vw - 32px))",
+            width: "100%",
             opacity: showSuggestions ? 1 : 0,
             transition: "opacity 350ms ease",
           }}
@@ -150,7 +151,7 @@ export function CommandBar({ open, onOpenChange, onResponse, emailContext, userN
         className="fixed left-1/2 -translate-x-1/2 z-45 flex items-center"
         style={{
           bottom: 52,
-          width: open ? 560 : 220,
+          width: open ? "min(560px, calc(100vw - 32px))" : 220,
           height: open ? 56 : 44,
           backgroundColor: "var(--color-cmd-bg)",
           borderRadius: 999,

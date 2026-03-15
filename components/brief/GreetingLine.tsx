@@ -46,8 +46,8 @@ export function GreetingLine({ name }: GreetingLineProps) {
   }, [revealed, fullText, nameStartIndex]);
 
   return (
-    <div className="flex items-baseline justify-between w-full mb-10">
-      <p className="font-[var(--font-heading)] text-[26px] font-light text-[var(--color-text-primary)] whitespace-nowrap">
+    <div className="flex flex-col sm:flex-row items-start sm:items-baseline justify-between w-full mb-8 sm:mb-10 gap-1 sm:gap-0">
+      <p className="font-[var(--font-heading)] text-[22px] sm:text-[26px] font-light text-[var(--color-text-primary)]">
         {fullText.split("").map((char, i) => (
           <span
             key={i}
@@ -59,7 +59,7 @@ export function GreetingLine({ name }: GreetingLineProps) {
           </span>
         ))}
       </p>
-      <p className="font-[var(--font-heading)] text-[18px] font-medium text-[var(--color-text-primary)] text-right shrink-0 ml-auto">
+      <p className="font-[var(--font-heading)] text-[14px] sm:text-[18px] font-medium text-[var(--color-text-primary)] sm:text-right shrink-0 sm:ml-auto">
         {getFormattedDate()}
       </p>
     </div>

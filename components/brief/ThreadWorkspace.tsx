@@ -49,7 +49,7 @@ function ThreadCard({
       style={{
         scrollSnapAlign: "start",
         flexShrink: 0,
-        width: isMini ? "200px" : isSelected ? (isFocusMode ? focusSelectedWidth : "650px") : "450px",
+        width: isMini ? "160px" : isSelected ? (isFocusMode ? "min(500px, calc(100vw - 48px))" : "min(650px, calc(100vw - 48px))") : "min(450px, calc(100vw - 48px))",
         maxHeight: isMini ? "80px" : isSelected ? "100%" : undefined,
         alignSelf: isSelected ? "stretch" : "center",
         background: "white",
@@ -359,7 +359,7 @@ function AIResponseZone({
   onEditDraft?: () => void;
 }) {
   return (
-    <div style={{ width: "100%", maxWidth: "780px", flexShrink: 0, position: "relative", zIndex: 1, marginBottom: "16px" }}>
+    <div style={{ width: "100%", maxWidth: "min(780px, calc(100vw - 32px))", flexShrink: 0, position: "relative", zIndex: 1, marginBottom: "16px" }}>
       {/* Assistant history — faded prior exchanges */}
       {assistantHistory.length > 0 && (
         <div
@@ -634,6 +634,25 @@ export function ThreadWorkspace({
   const historyRef = useRef<HTMLDivElement>(null);
   const historyIdCounter = useRef(0);
   const [draftEditing, setDraftEditing] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(false);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+
+  // Track scroll position of card rail
+  useEffect(() => {
+    const el = timelineRef.current;
+    if (!el) return;
+    function check() {
+      if (!el) return;
+      const { scrollLeft, scrollWidth, clientWidth } = el;
+      setCanScrollRight(scrollLeft + clientWidth < scrollWidth - 8);
+      setCanScrollLeft(scrollLeft > 8);
+    }
+    check();
+    el.addEventListener("scroll", check, { passive: true });
+    const ro = new ResizeObserver(check);
+    ro.observe(el);
+    return () => { el.removeEventListener("scroll", check); ro.disconnect(); };
+  }, [messages]);
 
   const selectedThreadMsg = messages.find((m) => m.id === selectedThreadMsgId) || null;
   const isFocusMode = agentDraft.mode !== "idle" || cmdLoading || cmdInputFocused || !!cmdResponse;
@@ -984,7 +1003,7 @@ export function ThreadWorkspace({
       {/* Header */}
       <div
         style={{
-          flexShrink: 0, padding: "28px 48px 20px",
+          flexShrink: 0, padding: "20px 16px 16px",
           borderBottom: "1px solid color-mix(in srgb, var(--color-border) 70%, rgba(46,107,230,0.1))",
           position: "relative", zIndex: 1,
         }}
@@ -1007,27 +1026,27 @@ export function ThreadWorkspace({
 
           <h1
             className="font-[var(--font-heading)] font-bold"
-            style={{ color: "var(--color-text-primary)", lineHeight: 1.2, marginBottom: "10px", fontSize: "30px", textAlign: "center" }}
+            style={{ color: "var(--color-text-primary)", lineHeight: 1.2, marginBottom: "10px", fontSize: "clamp(20px, 4vw, 30px)", textAlign: "center", paddingRight: "40px" }}
           >
             {item.subject || item.rewrittenSubject}
           </h1>
 
-          <div className="flex items-center justify-center gap-3" style={{ marginTop: "2px" }}>
+          <div className="flex items-center justify-center gap-2 sm:gap-3 flex-wrap" style={{ marginTop: "2px" }}>
             <div
               style={{
-                width: "32px", height: "32px", borderRadius: "50%",
+                width: "28px", height: "28px", borderRadius: "50%",
                 background: "rgba(46,107,230,0.08)",
                 display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
               }}
             >
-              <span className="font-[var(--font-heading)]" style={{ fontSize: "13px", fontWeight: 600, color: "#2E6BE6" }}>
+              <span className="font-[var(--font-heading)]" style={{ fontSize: "12px", fontWeight: 600, color: "#2E6BE6" }}>
                 {item.sender.name.charAt(0).toUpperCase()}
               </span>
             </div>
             <span className="font-[var(--font-heading)] text-[13px] font-medium" style={{ color: "var(--color-text-primary)" }}>
               {item.sender.name}
             </span>
-            <span className="font-[var(--font-heading)] text-[12px]" style={{ color: "var(--color-text-muted)" }}>
+            <span className="font-[var(--font-heading)] text-[11px] sm:text-[12px] hidden sm:inline" style={{ color: "var(--color-text-muted)" }}>
               {item.sender.email}
             </span>
             <span
@@ -1042,7 +1061,7 @@ export function ThreadWorkspace({
         <button
           onClick={onClose}
           style={{
-            position: "absolute", top: "28px", right: "48px",
+            position: "absolute", top: "20px", right: "16px",
             width: "36px", height: "36px", borderRadius: "50%",
             background: "rgba(10,22,40,0.05)", border: "none", cursor: "pointer",
             display: "flex", alignItems: "center", justifyContent: "center",
@@ -1058,7 +1077,7 @@ export function ThreadWorkspace({
         style={{
           flex: 1, minHeight: 0, display: "flex", flexDirection: "column",
           alignItems: "center", justifyContent: "center",
-          padding: "12px 48px 24px", gap: "0",
+          padding: "12px 16px 24px", gap: "0",
           position: "relative", zIndex: 1, overflow: "hidden",
         }}
       >
@@ -1131,6 +1150,45 @@ export function ThreadWorkspace({
               ))}
             </div>
 
+            {/* Scroll hint — mobile only, shows when cards overflow */}
+            {(canScrollLeft || canScrollRight) && (
+              <div
+                className="font-[var(--font-heading)] flex sm:hidden"
+                style={{
+                  alignItems: "center", gap: "8px",
+                  flexShrink: 0, marginTop: "-4px", marginBottom: "4px",
+                }}
+              >
+                {canScrollLeft && (
+                  <button
+                    onClick={() => timelineRef.current?.scrollBy({ left: -300, behavior: "smooth" })}
+                    style={{
+                      background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.08)",
+                      borderRadius: "999px", padding: "4px 12px", cursor: "pointer",
+                      color: "rgba(255,255,255,0.45)", fontSize: "11px", transition: "all 0.15s ease",
+                    }}
+                  >
+                    ← earlier
+                  </button>
+                )}
+                <span style={{ color: "rgba(255,255,255,0.25)", fontSize: "11px" }}>
+                  swipe to see all
+                </span>
+                {canScrollRight && (
+                  <button
+                    onClick={() => timelineRef.current?.scrollBy({ left: 300, behavior: "smooth" })}
+                    style={{
+                      background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.08)",
+                      borderRadius: "999px", padding: "4px 12px", cursor: "pointer",
+                      color: "rgba(255,255,255,0.45)", fontSize: "11px", transition: "all 0.15s ease",
+                    }}
+                  >
+                    newer →
+                  </button>
+                )}
+              </div>
+            )}
+
             {/* Scheduling hint */}
             {isSchedulingThread && !schedulingOpen && agentDraft.mode === "idle" && (
               <button
@@ -1162,7 +1220,7 @@ export function ThreadWorkspace({
 
             {/* Thread suggestion chips */}
             {agentDraft.mode === "idle" && !cmdLoading && !cmdResponse && !cmdValue.trim() && assistantHistory.length === 0 && (
-              <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", justifyContent: "center", flexShrink: 0, marginBottom: "10px", maxWidth: "540px", width: "100%" }}>
+              <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", justifyContent: "center", flexShrink: 0, marginBottom: "10px", maxWidth: "min(540px, calc(100vw - 48px))", width: "100%" }}>
                 {(threadSuggestions[item.threadId || ""] || defaultThreadSuggestions).map((suggestion) => (
                   <button
                     key={suggestion}
@@ -1198,7 +1256,7 @@ export function ThreadWorkspace({
                 background: "linear-gradient(180deg, rgba(255,255,255,0.06) 0%, var(--color-cmd-bg) 35%)",
                 borderRadius: "999px", padding: "12px 12px 12px 22px",
                 boxShadow: "0 8px 32px rgba(0,0,0,0.22), 0 2px 8px rgba(0,0,0,0.1)",
-                width: "100%", maxWidth: "540px", transition: "box-shadow 300ms ease, transform 200ms ease",
+                width: "100%", maxWidth: "min(540px, calc(100vw - 48px))", transition: "box-shadow 300ms ease, transform 200ms ease",
               }}
             >
               <span className="shrink-0">

@@ -26,7 +26,7 @@ export function FullEmailView({
 }: FullEmailViewProps) {
   return (
     <motion.div
-      className="w-full max-w-2xl mx-4"
+      className="w-full max-w-2xl mx-2 sm:mx-4"
       style={{ maxHeight: "90vh" }}
       initial={{ opacity: 0, scale: 0.92 }}
       animate={{ opacity: 1, scale: 1 }}
@@ -39,13 +39,13 @@ export function FullEmailView({
         style={{ maxHeight: "90vh" }}
       >
         {/* Header */}
-        <div className="shrink-0 p-8 pb-0">
+        <div className="shrink-0 p-4 sm:p-8 pb-0">
           <div className="flex items-start justify-between mb-4">
             <div className="flex items-center gap-3">
               <div
                 style={{
-                  width: "44px",
-                  height: "44px",
+                  width: "36px",
+                  height: "36px",
                   borderRadius: "50%",
                   background: "rgba(46,107,230,0.08)",
                   display: "flex",
@@ -56,7 +56,7 @@ export function FullEmailView({
               >
                 <span
                   className="font-[var(--font-heading)]"
-                  style={{ fontSize: "17px", fontWeight: 600, color: "#2E6BE6" }}
+                  style={{ fontSize: "15px", fontWeight: 600, color: "#2E6BE6" }}
                 >
                   {message.from.name.charAt(0).toUpperCase()}
                 </span>
@@ -98,7 +98,7 @@ export function FullEmailView({
           </div>
 
           <h2
-            className="font-[var(--font-heading)] text-[22px] font-bold"
+            className="font-[var(--font-heading)] text-[18px] sm:text-[22px] font-bold"
             style={{ color: "var(--color-text-primary)", lineHeight: 1.3, marginBottom: "8px" }}
           >
             {message.subject}
@@ -135,14 +135,14 @@ export function FullEmailView({
         </div>
 
         {/* Scrollable content */}
-        <div className="flex-1 overflow-y-auto min-h-0 px-8">
+        <div className="flex-1 overflow-y-auto min-h-0 px-4 sm:px-8">
           <div
             style={{
               background: "rgba(10,22,40,0.025)",
               border: "1px solid rgba(10,22,40,0.06)",
-              borderRadius: "16px",
-              padding: "24px",
-              marginBottom: "24px",
+              borderRadius: "12px",
+              padding: "16px",
+              marginBottom: "16px",
             }}
           >
             <span
@@ -162,10 +162,10 @@ export function FullEmailView({
 
         {/* Footer Actions */}
         <div
-          className="shrink-0 px-8 py-5"
+          className="shrink-0 px-4 sm:px-8 py-4 sm:py-5"
           style={{ borderTop: "1px solid rgba(10,22,40,0.06)" }}
         >
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
             <button
               onClick={onReply}
               className="font-[var(--font-heading)] text-[13px] font-medium"
