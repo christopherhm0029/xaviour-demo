@@ -6,35 +6,47 @@ Xaviour is an AI-first email experience that turns inbox noise into a calm narra
 
 ---
 
-### The Morning Brief
+## The Morning Brief
 
 Your inbox distilled into a calm, narrative overview — no list of subjects, no clutter. Xaviour tells you what matters and why.
 
-![Morning Brief — narrative inbox overview](docs/screenshots/overview-brief.png)
+![Morning Brief — narrative inbox overview](docs/screenshots/01-morning-brief.png)
 
-### AI Command Bar
+## AI Composer
 
-Ask Xaviour anything. The command bar opens with intelligent suggestions and responds with editorial, context-aware guidance drawn from your inbox.
+Ask Xaviour anything. The command bar responds with rich, editorial guidance — prioritizing your inbox and telling you exactly where to start.
 
-![Command bar with AI suggestion chips](docs/screenshots/command-bar.png)
+<p>
+  <img src="docs/screenshots/03-command-bar.png" alt="Command bar with full inbox context" width="49%" />
+  <img src="docs/screenshots/02-ai-guidance.png" alt="AI narrative guidance response" width="49%" />
+</p>
 
-### Narrative AI Responses
+## Thread Workspace
 
-When you ask "What needs my attention first?", Xaviour doesn't list emails — it tells you a story. Rich, editorial responses that prioritize and contextualize.
+Open any thread to enter a focused workspace. Xaviour reads the full conversation and gives you a narrative summary — no skimming required. Hover over message cards to preview individual exchanges.
 
-![AI narrative response on the overview page](docs/screenshots/ai-response.png)
+<p>
+  <img src="docs/screenshots/04-thread-workspace.png" alt="Thread workspace with AI summary" width="49%" />
+  <img src="docs/screenshots/05-thread-cards.png" alt="Thread cards with hover preview" width="49%" />
+</p>
 
-### Thread Workspace
+## AI-Drafted Replies
 
-Open any thread to see the full conversation with smart actions — Quick Reply, Forward, Summarize — all within a focused workspace.
+One click and Xaviour drafts a contextual reply in your voice. Review, edit, or send — with full thread awareness.
 
-![Thread workspace with email content and actions](docs/screenshots/thread-workspace.png)
+<p>
+  <img src="docs/screenshots/08-ai-draft.png" alt="AI-generated draft reply" width="49%" />
+  <img src="docs/screenshots/09-draft-confirm.png" alt="Draft ready to confirm and send" width="49%" />
+</p>
 
-### AI-Drafted Replies
+## Smart Context — Calendar & Scheduling
 
-One click and Xaviour drafts a contextual reply. Review it, edit it, or send it — the AI writes in your voice with full thread awareness.
+Xaviour surfaces availability and scheduling context alongside the conversation, so you never have to leave the thread to check your calendar.
 
-![AI-generated draft reply ready to send](docs/screenshots/ai-draft-reply.png)
+<p>
+  <img src="docs/screenshots/06-thread-ai-summary.png" alt="Thread AI narrative summary" width="49%" />
+  <img src="docs/screenshots/07-calendar-widget.png" alt="Calendar availability widget" width="49%" />
+</p>
 
 ---
 
